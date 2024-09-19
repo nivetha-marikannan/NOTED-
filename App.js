@@ -9,7 +9,6 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    // Auto-edit the first matching note when search term changes
     const index = tasks.findIndex(task => 
       task.title.toLowerCase() === searchTerm.toLowerCase()
     );
@@ -27,7 +26,6 @@ export default function App() {
         setTasks(updatedTasks);
         setEditIndex(-1);
       } else {
-        // Add New Task
         setTasks([...tasks, { title, text: task }]);
       }
       setTitle("");
@@ -46,7 +44,6 @@ export default function App() {
     const updatedTasks = [...tasks];
     updatedTasks.splice(index, 1);
     setTasks(updatedTasks);
-    // Reset edit index if the deleted task was being edited
     if (editIndex === index) {
       setTitle("");
       setTask("");
@@ -80,7 +77,7 @@ export default function App() {
 
   return (
     <ImageBackground
-      source={{ uri:"C:\Users\NivethaMarikannan\Desktop\image.jpg" }} // Replace with your image URL or local path
+      source={{ uri:"C:\Users\NivethaMarikannan\Desktop\image.jpg" }} 
       style={styles.container}
     >
       <View style={styles.innerContainer}>
